@@ -32,7 +32,7 @@ XRP rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg Tag 2632592722
 
 Or if you wish to [leave a message](https://streamlabs.com/creativebuilds/tip)
 
-## This starter consists of the following parts
+## This project consists of the following parts
 
 - Background script (vanilla TS)
 - Content script (vanilla TS)
@@ -40,7 +40,7 @@ Or if you wish to [leave a message](https://streamlabs.com/creativebuilds/tip)
 
 _And, of course, the `./manifest.json` file describing its configuration._
 
-## Environment
+## Environment Requirements
 
 - Node.js >=12.0.0
 - NPM >= 6.0.0

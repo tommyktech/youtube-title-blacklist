@@ -25,5 +25,5 @@
     "persistent": false
   },
   "web_accessible_resources": ["assets/icons/*.png"],
-  "permissions": ["*://*/*", "storage"]
+  "permissions": ["*://youtube.com/*", "storage"]
 }

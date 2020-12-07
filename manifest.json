@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Youtube Title Blacklist",
+  "version": "1.0.0",
+  "description": "Hide unwanted videos from your home page if they include keywords in the title.",
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "24": "assets/icons/icon24.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  },
+  "browser_action": {
+    "default_icon": "assets/icons/icon16.png",
+    "default_popup": "popup/index.html",
+    "default_title": "Youtube Title Blacklist - Settings"
+  },
+  "content_scripts": [
+    {
+      "js": ["content/index.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "scripts": ["background/index.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": ["assets/icons/*.png"],
+  "permissions": ["*://*/*", "storage"]
+}

@@ -8,7 +8,8 @@ Eventually this extension will be posted on the Google Chrome Extension Marketpl
 
 Once you have downloaded, navigate to the directory and run two commands. `npm install` then `npm run dist` which should build the extension. Please note the **Enviroment requirements** down below.
 
-After you run `npm run dist` you should notice a `dist` folder appear. Then follow ![these instructions from Chrome](images/chrome_developer_instructions.png) that explain how to install an extension in developer mode. When it asks you to pick a folder, choose the `dist` folder that was generated.
+After you run `npm run dist` you should notice a `dist` folder appear. Then follow these instructions from Chrome that explain how to install an extension in developer mode. ![](images/chrome_developer_instructions.png)
+When it asks you to pick a folder, choose the `dist` folder that was generated.
 
 # After Install
 

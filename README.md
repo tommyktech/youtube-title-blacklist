@@ -26,11 +26,9 @@ By default, google analytics is enabled to see how many people use the extension
 
 Donations for those who like the extension are appreciated, but not required.
 
-BTC 37ag3836y5mDnqNjFZurwAziwUfCAAJybZ
-
-ETH 0x44bA9Fc4931f4eCaBE45c161b7cF8eaEe54dE283
-
-XRP rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg Tag 2632592722
+- BTC 37ag3836y5mDnqNjFZurwAziwUfCAAJybZ
+- ETH 0x44bA9Fc4931f4eCaBE45c161b7cF8eaEe54dE283
+- XRP rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg Tag 2632592722
 
 Or if you wish to [leave a message with Streamlabs](https://streamlabs.com/creativebuilds/tip)
 

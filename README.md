@@ -16,6 +16,8 @@ In this window you can add any keys you want to block _(non-case-sensitive, leng
 
 _Note: This plugin was made in one day for mostly personal use, currently if you add a lot keys it may start to lag if you load a lot of videos. That's just a suscipicion I have, but be warned._
 
+By default, google analytics is enabled to see how many people use the extension. I use that information to see if its worth while to continue persuing as an idea. If you don't want to send any non-identifiable information you can remove the code in `src/popup/index.html`
+
 # Support
 
 Donations for those who like the extension are appreciated, but not required.

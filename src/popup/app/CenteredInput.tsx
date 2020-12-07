@@ -19,7 +19,7 @@ export function CenteredInput(props: IProps) {
 
   const validateInput = () => {
     if (userInput.length >= 3) {
-      props.onAdd(userInput);
+      props.onAdd(userInput.toLowerCase());
       setUserInput("");
     }
   };

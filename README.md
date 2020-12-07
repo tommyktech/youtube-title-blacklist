@@ -15,6 +15,7 @@ When it asks you to pick a folder, choose the `dist` folder that was generated.
 # After Install
 
 Once installed you're going to open the popup window.
+
 ![](images/popup_window.png)
 
 In this window you can add any keys you want to block _(non-case-sensitive, length > 3)_, temporarily disable certain keys or remove them entirely.

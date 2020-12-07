@@ -32,7 +32,7 @@ ETH 0x44bA9Fc4931f4eCaBE45c161b7cF8eaEe54dE283
 
 XRP rw2ciyaNshpHe7bCHo4bRWq6pqqynnWKQg Tag 2632592722
 
-Or if you wish to [leave a message](https://streamlabs.com/creativebuilds/tip)
+Or if you wish to [leave a message with Streamlabs](https://streamlabs.com/creativebuilds/tip)
 
 ## This project consists of the following parts
 

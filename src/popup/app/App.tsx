@@ -1,11 +1,10 @@
 import equal from "fast-deep-equal";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import { CenteredInput } from "./CenteredInput";
 import { useBlacklist } from "./CustomHooks/useBlacklist";
 import { ShowBlacklist } from "./ShowBlacklist";
 import { Container } from "./styles";
-const pack = require("../../../package.json");
 
 const Title = styled.h6`
   font-weight: bold;
@@ -64,8 +63,8 @@ const SourceCode = styled.a`
 const App: FC = () => {
   const { blacklist, setBlacklist, firstBlacklist } = useBlacklist();
   // TODO add capitlization checking and handling here 👇
-  const editKeyOnBlacklist = (text: string, toggled: boolean = true) => {
-    let curr_blacklist: BlacklistMap = { ...blacklist };
+  const editKeyOnBlacklist = (text: string, toggled = true) => {
+    const curr_blacklist: BlacklistMap = { ...blacklist };
     curr_blacklist[text] = toggled;
 
     chrome.storage.sync.set({ blacklist: curr_blacklist }, function() {
@@ -74,7 +73,7 @@ const App: FC = () => {
   };
 
   const removeKeyOnBlacklist = (blacklistedKey: string) => {
-    let curr_blacklist: BlacklistMap = { ...blacklist };
+    const curr_blacklist: BlacklistMap = { ...blacklist };
     delete curr_blacklist[blacklistedKey];
 
     chrome.storage.sync.set({ blacklist: curr_blacklist }, function() {

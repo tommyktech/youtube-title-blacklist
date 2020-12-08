@@ -10,7 +10,7 @@ const CustomInput = styled.input`
   margin-right: 20px;
 `;
 
-export function CenteredInput(props: IProps) {
+export function CenteredInput(props: IProps): JSX.Element {
   const [userInput, setUserInput] = useState("");
 
   const updateUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -25,9 +25,7 @@ export function CenteredInput(props: IProps) {
   };
 
   const checkForEnter = (e: any) => {
-    if (e.key == "Enter") {
-      validateInput();
-    }
+    if (e.key == "Enter") validateInput();
   };
 
   return (

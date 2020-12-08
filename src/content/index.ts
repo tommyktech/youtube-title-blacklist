@@ -2,7 +2,7 @@ import { BehaviorSubject } from "rxjs";
 import { add_event_listeners } from "./helpers/add_event_listeners";
 import { check_for_blacklisted_videos } from "./helpers/check_for_blacklisted_videos";
 
-let rxEvents = new BehaviorSubject<Event>(null as any);
+const rxEvents = new BehaviorSubject(null as any);
 
 const youtube_video_grid = document.querySelector("ytd-rich-grid-renderer");
 

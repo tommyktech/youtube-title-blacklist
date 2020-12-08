@@ -9,15 +9,15 @@ import { USER_SETTINGS } from "./_user_settings";
  * checks all video title elements -
  * if a blacklisted video is found, remove it and display another in its place
  */
-export async function check_for_blacklisted_videos() {
-  let elements = document.querySelectorAll("yt-formatted-string#video-title");
+export async function check_for_blacklisted_videos(): Promise<void> {
+  const elements = document.querySelectorAll("yt-formatted-string#video-title");
   const blacklist = await get_user_blacklist();
 
-  for (let element of elements) {
-    let innerHtml = element.innerHTML.toLowerCase();
+  for (const element of elements) {
+    const innerHtml = element.innerHTML.toLowerCase();
 
     if (check_for_blacklisted_words(blacklist, innerHtml)) {
-      let video_tile = get_recommended_video_tile(
+      const video_tile = get_recommended_video_tile(
         element,
         "ytd-rich-item-renderer"
       );
@@ -27,7 +27,7 @@ export async function check_for_blacklisted_videos() {
       if (is_homepage(video_tile.parentElement)) {
         const section = check_if_video_is_in_section(video_tile);
 
-        if (!!section) {
+        if (section) {
           if (USER_SETTINGS["REMOVE_SECTIONS"]) section?.remove();
 
           // return here to stop the "fill in missing video" as an entire section was removed
@@ -75,10 +75,9 @@ function check_for_blacklisted_words(blacklist: string[], innerHtml: string) {
   let blacklisted = false;
   let i = 0;
   while (blacklisted == false && i <= blacklist.length - 1) {
-    let key = blacklist[i];
-    if (innerHtml.includes(key)) {
-      blacklisted = true;
-    }
+    const key = blacklist[i];
+    if (innerHtml.includes(key)) blacklisted = true;
+
     i++;
   }
   return blacklisted;

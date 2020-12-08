@@ -10,7 +10,7 @@ export function add_event_listeners({
 }: {
   rxEvents: BehaviorSubject<Event>;
   element: Element | null;
-}) {
+}): void {
   includeScrolling(rxEvents);
   if (!element) return;
 

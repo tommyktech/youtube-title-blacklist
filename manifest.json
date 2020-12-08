@@ -17,7 +17,7 @@
   "content_scripts": [
     {
       "js": ["content/index.js"],
-      "matches": ["*://youtube.com/*"]
+      "matches": ["https://*.youtube.com/*"]
     }
   ],
   "background": {
@@ -26,5 +26,5 @@
   },
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
   "web_accessible_resources": ["assets/icons/*.png"],
-  "permissions": ["*://youtube.com/*", "storage"]
+  "permissions": ["activeTab", "storage"]
 }

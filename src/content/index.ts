@@ -15,6 +15,20 @@ let running = false;
 rxEvents.subscribe(async () => {
   if (running) return;
   running = true;
-  await check_for_blacklisted_videos();
+  if (window.location.href.includes("watch")) {
+    console.log("Watchpage Detected, blocking for Watchpage elements");
+    await check_for_blacklisted_videos(
+      "span#video-title",
+      "ytd-compact-video-renderer"
+    );
+  } else {
+    console.log("Homepage Detected, blocking for Homepage elements");
+    await check_for_blacklisted_videos(
+      "yt-formatted-string#video-title",
+      "ytd-rich-item-renderer",
+      false
+    );
+  }
+
   running = false;
 });

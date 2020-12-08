@@ -1,6 +1,6 @@
 import { get_user_blacklist } from "./get_user_blacklist";
 import { get_recommended_video_tile } from "./get_recommended_video_tile";
-import { fill_in_missing_video } from "./fill_in_missing_video";
+import { fill_in_video } from "./fill_in_missing_video";
 import { USER_SETTINGS } from "./_user_settings";
 
 /**
@@ -9,18 +9,19 @@ import { USER_SETTINGS } from "./_user_settings";
  * checks all video title elements -
  * if a blacklisted video is found, remove it and display another in its place
  */
-export async function check_for_blacklisted_videos(): Promise<void> {
-  const elements = document.querySelectorAll("yt-formatted-string#video-title");
+export async function check_for_blacklisted_videos(
+  element_query: string,
+  parent_tag_name: string,
+  fill_misssing = true
+): Promise<void> {
+  const elements = document.querySelectorAll(element_query);
   const blacklist = await get_user_blacklist();
 
   for (const element of elements) {
     const innerHtml = element.innerHTML.toLowerCase();
 
     if (check_for_blacklisted_words(blacklist, innerHtml)) {
-      const video_tile = get_recommended_video_tile(
-        element,
-        "ytd-rich-item-renderer"
-      );
+      const video_tile = get_recommended_video_tile(element, parent_tag_name);
 
       if (!video_tile) return;
 
@@ -34,7 +35,8 @@ export async function check_for_blacklisted_videos(): Promise<void> {
           return;
         }
       }
-      fill_in_missing_video(video_tile);
+      if (fill_misssing) fill_in_video(video_tile);
+      video_tile.remove();
     }
   }
 }

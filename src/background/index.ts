@@ -1,3 +1,12 @@
-console.log(
-  "Hey! This code is executed in the background, you will not see it in the browser console..."
-);
+const _gaq = [];
+_gaq.push(["_setAccount", "G-CTD3LE4R3X"]);
+_gaq.push(["_trackPageview"]);
+
+(function() {
+  const ga = document.createElement("script");
+  ga.type = "text/javascript";
+  ga.async = true;
+  ga.src = "https://ssl.google-analytics.com/ga.js";
+  const s = document.getElementsByTagName("script")[0];
+  s.parentNode?.insertBefore(ga, s);
+})();

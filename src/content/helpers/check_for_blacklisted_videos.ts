@@ -12,7 +12,7 @@ import { USER_SETTINGS } from "./_user_settings";
 export async function check_for_blacklisted_videos(
   element_query: string,
   parent_tag_name: string,
-  fill_misssing = true
+  fill_missing = true
 ): Promise<void> {
   const elements = document.querySelectorAll(element_query);
   const blacklist = await get_user_blacklist();
@@ -35,7 +35,7 @@ export async function check_for_blacklisted_videos(
           return;
         }
       }
-      if (fill_misssing) fill_in_video(video_tile);
+      if (fill_missing) fill_in_video(video_tile);
       video_tile.remove();
     }
   }

@@ -23,13 +23,5 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["./src"],
-  "files": [
-    "./vue-shims.d.ts",
-    "./src/content/USER_SETTINGS.ts",
-    "./src/content/check_for_blacklisted_videos.ts",
-    "./src/content/fill_in_missing_video.ts",
-    "./src/content/getParentFromTypeOrNull.ts",
-    "./src/content/get_user_blacklist.ts",
-    "./src/content/addListeners.ts"
-  ]
+  "files": []
 }

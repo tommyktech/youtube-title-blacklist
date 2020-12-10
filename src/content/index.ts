@@ -23,13 +23,11 @@ const block_videos_based_on_url_path = async () => {
   if (running) return;
   running = true;
 
-  const blocked_elements = url_includes("watch")
+  url_includes("watch")
     ? await filter_watch_page()
     : url_includes("results")
     ? await filter_results_page()
     : await filter_homepage();
-
-  console.log("Blocked Elements:", blocked_elements);
 
   running = false;
 };

@@ -1,7 +1,7 @@
 {
   "name": "youtube-title-blacklist",
-  "version": "1.0.0",
-  "description": "Blacklist videos that contain certain words in their titles",
+  "version": "1.0.1",
+  "description": "Block videos from showing up in your home feed on YouTube that contain certain keywords that you set.",
   "main": "index.js",
   "scripts": {
     "build:bg": "parcel build src/background/index.ts -d dist/background",

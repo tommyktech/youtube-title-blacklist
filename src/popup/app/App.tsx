@@ -99,7 +99,8 @@ const App: FC = () => {
       />
       <br />
       <MadeWithLove>
-        Made with 💙 by <a href="https://creativebuilds.io">CreativeBuilds</a>
+        Made with 💙 by{" "}
+        <a href="https://github.com/creativebuilds">CreativeBuilds</a>
       </MadeWithLove>
       <SourceCode href="https://github.com/creativebuilds/youtube-title-blacklist">
         Source Code

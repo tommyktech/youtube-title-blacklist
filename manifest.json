@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Youtube Title Blacklist",
   "version": "1.0.1",
-  "description": "Hide unwanted videos on Youtube if they include keywords in the title.",
+  "description": "Block videos from showing up in your home feed on YouTube that contain certain keywords that you set.",
   "icons": {
     "16": "assets/icons/icon16.png",
     "24": "assets/icons/icon24.png",

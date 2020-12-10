@@ -32,10 +32,8 @@ const BlackLI = styled.li`
 
 const Name = styled.span`
   &::before {
-    content: ${(props: { blacklistedKey: string }) => {
-      console.log("KEY", props.blacklistedKey);
-      return "'" + props.blacklistedKey + "'";
-    }};
+    content: ${(props: { blacklistedKey: string }) =>
+      "'" + props.blacklistedKey + "'"};
   }
 
   &:hover {
@@ -66,7 +64,7 @@ const NameOrRemove: React.FC<{
 
 export function ShowBlacklist(props: IProps) {
   const showElementForEach = (blacklist: BlacklistMap) => {
-    let keys = Object.keys(blacklist);
+    const keys = Object.keys(blacklist);
     return keys.map(key => {
       return (
         <BlackLI>

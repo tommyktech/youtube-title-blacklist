@@ -2,9 +2,9 @@
  * @description Moves up the parent tree until it finds an element that includes the name specified
  */
 export const get_recommended_video_tile = (
-  element: Element,
+  element: HTMLElement,
   name: string
-): Element | null => {
+): HTMLElement | null => {
   if (element.tagName.toLowerCase().includes(name)) return element;
 
   if (!element.parentElement) return null;

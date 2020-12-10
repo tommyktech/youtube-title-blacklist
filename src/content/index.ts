@@ -2,6 +2,7 @@ import { BehaviorSubject } from "rxjs";
 import { add_event_listeners } from "./helpers/add_event_listeners";
 import { check_for_blacklisted_videos } from "./helpers/check_for_blacklisted_videos";
 import { url_includes } from "./helpers/url_includes";
+import { array_unique } from "./helpers/array_unique";
 
 const rxEvents = new BehaviorSubject(null as any);
 let running = false;
@@ -22,16 +23,13 @@ const block_videos_based_on_url_path = async () => {
   if (running) return;
   running = true;
 
-  if (url_includes("watch")) {
-    await watch_page_title_text_search();
-    await watch_page_channel_name_search();
-  } else if (url_includes("results")) {
-    await results_page_title_text_search();
-    await results_page_channel_name_search();
-  } else {
-    await homepage_title_text_search();
-    await homepage_channel_name_search();
-  }
+  const blocked_elements = url_includes("watch")
+    ? await filter_watch_page()
+    : url_includes("results")
+    ? await filter_results_page()
+    : await filter_homepage();
+
+  console.log("Blocked Elements:", blocked_elements);
 
   running = false;
 };
@@ -42,48 +40,38 @@ const block_videos_based_on_url_path = async () => {
  */
 rxEvents.subscribe(block_videos_based_on_url_path);
 
-async function watch_page_title_text_search() {
-  await check_for_blacklisted_videos(
+async function filter_watch_page() {
+  const blocked_by_title = await check_for_blacklisted_videos(
     "span#video-title",
-    "ytd-compact-video-renderer",
-    false
+    "ytd-compact-video-renderer"
   );
-}
-
-async function watch_page_channel_name_search() {
-  await check_for_blacklisted_videos(
+  const blocked_by_channel_name = await check_for_blacklisted_videos(
     "yt-formatted-string.ytd-channel-name",
-    "ytd-compact-video-renderer",
-    false
+    "ytd-compact-video-renderer"
   );
+  return array_unique([...blocked_by_title, ...blocked_by_channel_name]);
 }
 
-async function results_page_channel_name_search() {
-  await check_for_blacklisted_videos(
-    "yt-formatted-string.ytd-channel-name",
-    "ytd-video-renderer",
-    false
-  );
-}
-
-async function results_page_title_text_search() {
-  await check_for_blacklisted_videos(
+async function filter_results_page() {
+  const blocked_by_title = await check_for_blacklisted_videos(
     "yt-formatted-string#video-title",
-    "ytd-video-renderer",
-    false
+    "ytd-video-renderer"
   );
+  const blocked_by_channel_name = await check_for_blacklisted_videos(
+    "yt-formatted-string.ytd-channel-name",
+    "ytd-video-renderer"
+  );
+  return array_unique([...blocked_by_title, ...blocked_by_channel_name]);
 }
 
-async function homepage_title_text_search() {
-  await check_for_blacklisted_videos(
+async function filter_homepage() {
+  const blocked_by_title = await check_for_blacklisted_videos(
     "yt-formatted-string#video-title",
     "ytd-rich-item-renderer"
   );
-}
-
-async function homepage_channel_name_search() {
-  await check_for_blacklisted_videos(
+  const blocked_by_channel_name = await check_for_blacklisted_videos(
     "a.yt-formatted-string.yt-simple-endpoint",
     "ytd-rich-item-renderer"
   );
+  return array_unique([...blocked_by_title, ...blocked_by_channel_name]);
 }

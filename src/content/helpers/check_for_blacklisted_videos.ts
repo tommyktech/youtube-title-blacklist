@@ -1,6 +1,5 @@
 import { get_user_blacklist } from "./get_user_blacklist";
 import { get_recommended_video_tile } from "./get_recommended_video_tile";
-import { fill_in_video } from "./fill_in_missing_video";
 import { USER_SETTINGS } from "./_user_settings";
 
 /**
@@ -14,7 +13,7 @@ export async function check_for_blacklisted_videos(
   element_query: string,
   parent_tag_name: string
 ): Promise<Array<HTMLElement>> {
-  const blacklist = await get_user_blacklist();
+  const blacklist = await get_user_blacklist().catch(() => [] as string[]);
   const elements = document.querySelectorAll<HTMLElement>(element_query);
 
   const blacklisted_videos = Array.from(elements).reduce((acc, element) => {

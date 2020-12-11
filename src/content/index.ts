@@ -23,11 +23,13 @@ const block_videos_based_on_url_path = async () => {
   if (running) return;
   running = true;
 
-  url_includes("watch")
+  const blocked_tiles = url_includes("watch")
     ? await filter_watch_page()
     : url_includes("results")
     ? await filter_results_page()
     : await filter_homepage();
+
+  for (const blocked_tile of blocked_tiles) blocked_tile.style.display = "none";
 
   running = false;
 };

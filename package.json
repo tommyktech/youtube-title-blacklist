@@ -1,6 +1,6 @@
 {
   "name": "youtube-title-blacklist",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Block videos from showing up in your home feed on YouTube that contain certain keywords that you set.",
   "main": "index.js",
   "scripts": {

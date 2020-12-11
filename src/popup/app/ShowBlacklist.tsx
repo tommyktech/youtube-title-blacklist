@@ -33,7 +33,6 @@ const BlackLI = styled.li`
 const Name = styled.span`
   &::before {
     content: ${(props: { blacklistedKey: string }) => {
-      console.log("KEY", props.blacklistedKey);
       return "'" + props.blacklistedKey + "'";
     }};
   }

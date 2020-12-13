@@ -100,9 +100,19 @@ const App: FC = () => {
       <br />
       <MadeWithLove>
         Made with 💙 by{" "}
-        <a href="https://github.com/creativebuilds">CreativeBuilds</a>
+        <a
+          href="https://github.com/creativebuilds"
+          rel="noreferrer"
+          target="_blank"
+        >
+          CreativeBuilds
+        </a>
       </MadeWithLove>
-      <SourceCode href="https://github.com/creativebuilds/youtube-title-blacklist">
+      <SourceCode
+        href="https://github.com/creativebuilds/youtube-title-blacklist"
+        rel="noreferrer"
+        target="_blank"
+      >
         Source Code
       </SourceCode>
     </CustomContainer>

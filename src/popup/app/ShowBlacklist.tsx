@@ -12,6 +12,8 @@ const BlackUL = styled.ul`
   padding: 0;
   margin-bottom: 0;
   margin-top: 0;
+  max-height: 350px;
+  overflow: auto;
 
   & > li:nth-child(1) > span {
     font-weight: bold;

@@ -1,6 +1,7 @@
 # youtube-title-blacklist
 
-*[02/23/2023] Compatible with Mobile Now!*
+**[02/23/2023] Compatible with Mobile Now!**  
+https://drive.google.com/file/d/1i1ERHc8HIOX5JybehsiQxC4KLKpHw2-x/view?usp=sharing
 
 This is a chrome extension to block youtube videos with certain words in their titles.
 

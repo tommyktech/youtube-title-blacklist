@@ -73,5 +73,13 @@ async function filter_homepage() {
     "a.yt-formatted-string.yt-simple-endpoint",
     "ytd-rich-item-renderer"
   );
-  return array_unique([...blocked_by_title, ...blocked_by_channel_name]);
+  const blocked_by_title_mobile = await check_for_blacklisted_videos(
+    "h3.media-item-headline > span.yt-core-attributed-string",
+    "ytm-rich-item-renderer"
+  );
+  const blocked_by_channel_name_mobile = await check_for_blacklisted_videos(
+    "span.ytm-badge-and-byline-item-byline > span.yt-core-attributed-string",
+    "ytm-rich-item-renderer"
+  );
+  return array_unique([...blocked_by_title, ...blocked_by_channel_name, ...blocked_by_title_mobile, ...blocked_by_channel_name_mobile]);
 }

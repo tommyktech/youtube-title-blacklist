@@ -21,7 +21,7 @@
     }
   ],
   "background": {
-    "scripts": ["background/index.js"],
+    "service_worker": ["background/index.js"],
     "persistent": false
   },
   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
